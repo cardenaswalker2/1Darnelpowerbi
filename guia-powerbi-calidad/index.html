@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power BI Quality Operations — Guía de Trabajo</title>
+  <meta name="description" content="Centro de apoyo interactivo para el diagnóstico, actualización y validación del dashboard de Gestión de Calidad en Power BI, SharePoint y Microsoft 365.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- BACKDROP TÁCTIL PARA CELULARES -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+  <div class="app-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon">BI</div>
+        <div class="sidebar-title">
+          <h2>Quality Operations</h2>
+          <p>Power BI & M365 Guide</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-group-title">Centro de Mando</div>
+        <a class="nav-link active" data-section="inicio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Inicio / Operaciones</span>
+        </a>
+        <a class="nav-link" data-section="primera-jornada">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Modo Primera Jornada</span>
+          <span class="nav-badge">Prioritario</span>
+        </a>
+
+        <div class="nav-group-title">Diagnóstico y Datos</div>
+        <a class="nav-link" data-section="diagnostico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Diagnóstico PBIX</span>
+        </a>
+        <a class="nav-link" data-section="sharepoint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          <span>Conexión SharePoint</span>
+        </a>
+        <a class="nav-link" data-section="inventario">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          <span>Inventario de Columnas</span>
+        </a>
+
+        <div class="nav-group-title">Ingeniería y DAX</div>
+        <a class="nav-link" data-section="fases">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          <span>Plan de 12 Fases</span>
+        </a>
+        <a class="nav-link" data-section="powerquery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>Guía Power Query (M)</span>
+        </a>
+        <a class="nav-link" data-section="modelado-dax">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <span>Modelado y DAX</span>
+        </a>
+
+        <div class="nav-group-title">Visuales y Filtros</div>
+        <a class="nav-link" data-section="paginas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Diseño Páginas 1, 2 y 3</span>
+        </a>
+        <a class="nav-link" data-section="filtros">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          <span>Reparación de Filtros</span>
+        </a>
+        <a class="nav-link" data-section="automatizacion">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          <span>Automatización Flujo</span>
+        </a>
+
+        <div class="nav-group-title">Alineación y Control</div>
+        <a class="nav-link" data-section="preguntas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Preguntas para la Empresa</span>
+        </a>
+        <a class="nav-link" data-section="pruebas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Plan de Pruebas</span>
+        </a>
+        <a class="nav-link" data-section="problemas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Solución de Problemas</span>
+        </a>
+        <a class="nav-link" data-section="checklist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Checklist Final</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="mini-progress-label">
+          <span>Progreso Real</span>
+          <strong class="kpi-progress-percent">0%</strong>
+        </div>
+        <div class="mini-progress-bar">
+          <div class="mini-progress-fill"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- WRAPPER PRINCIPAL -->
+    <div class="main-wrapper">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir Menú">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="topbar-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="globalSearchInput" placeholder="Buscar instrucciones, DAX, filtros...">
+            <div id="searchResultsDropdown" style="display:none; position:absolute; top:110%; left:0; width:100%; background:#fff; border:1px solid var(--border-subtle); border-radius:var(--radius-sm); box-shadow:var(--shadow-lg); z-index:200; max-height:360px; overflow-y:auto;"></div>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="btn btn-outline btn-sm" id="btnPrintGuide" title="Imprimir o guardar como PDF">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>Imprimir</span>
+          </button>
+          <button class="btn btn-outline btn-sm" id="btnExportJson" title="Exportar mi progreso a archivo JSON">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Exportar</span>
+          </button>
+          <label class="btn btn-outline btn-sm" style="margin-bottom:0; cursor:pointer;" title="Restaurar respaldo JSON">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span>Importar</span>
+            <input type="file" id="importJsonInput" accept=".json" style="display:none;">
+          </label>
+          <button class="btn btn-danger btn-sm" id="btnResetProgress" title="Borrar datos locales y reiniciar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            <span>Reiniciar</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ÁREA DE CONTENIDO -->
+      <main class="content-area">
+
+        <!-- SECCIÓN A: INICIO / CENTRO DE OPERACIONES -->
+        <section id="inicio" class="view-section active">
+          <div class="section-header">
+            <div class="section-tag">Centro de Control Operativo</div>
+            <h1>Power BI Quality Operations — Guía de Trabajo</h1>
+            <p>Centro de apoyo para el diagnóstico, actualización y validación del dashboard de Gestión de Calidad.</p>
+          </div>
+
+          <!-- BLOQUE OBLIGATORIO: ANTES DE TOCAR EL INFORME -->
+          <div class="alert-box alert-amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div>
+              <div class="alert-title">PROTOCOLO DE SEGURIDAD: ANTES DE TOCAR EL INFORME</div>
+              <div class="alert-desc">
+                1. <strong>Confirmar acceso:</strong> No intente modificar archivos productivos directamente en SharePoint o red sin permisos formales.<br>
+                2. <strong>Crear copia de trabajo:</strong> Guarde inmediatamente una copia local fechada (ej. <code>Dashboard_Calidad_TRABAJO_v1.pbix</code>).<br>
+                3. <strong>Comprender antes de modificar:</strong> Ninguna medida DAX ni transformación M debe aplicarse antes de diagnosticar la estructura real y acordar las reglas con el líder del proceso.
+              </div>
+            </div>
+          </div>
+
+          <!-- GRID DE KPIS DE PROGRESO REAL -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-card-label">Avance Real Ponderado</div>
+              <div class="kpi-card-value kpi-progress-percent">0%</div>
+              <div class="kpi-card-sub">Calculado sobre tareas y fases completadas</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-label">Tareas Completadas</div>
+              <div class="kpi-card-value" id="statCompletedTasks" style="color:var(--accent-green);">0</div>
+              <div class="kpi-card-sub">Actividades validadas y cerradas</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-label">Tareas Pendientes</div>
+              <div class="kpi-card-value" id="statPendingTasks" style="color:var(--text-primary);">38</div>
+              <div class="kpi-card-sub">Por ejecutar en la jornada</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-label">Tareas Bloqueadas</div>
+              <div class="kpi-card-value" id="statBlockedTasks" style="color:var(--accent-red);">0</div>
+              <div class="kpi-card-sub">Esperando accesos o respuesta de la empresa</div>
+            </div>
+          </div>
+
+          <!-- ACCIONES RÁPIDAS -->
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Acciones Inmediatas para Comenzar</h3>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+              <button class="btn btn-petroleum" id="btnStartDay">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Comenzar Jornada (Paso a Paso)</span>
+              </button>
+              <button class="btn btn-outline" id="btnViewPhases">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+                <span>Consultar las 12 Fases</span>
+              </button>
+              <button class="btn btn-outline" id="btnViewQuestions">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/></svg>
+                <span>Preguntas para la Empresa</span>
+              </button>
+              <button class="btn btn-outline" id="btnViewDiag">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                <span>Diagnóstico del Archivo PBIX</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- RESUMEN DE RESPALDO Y PRIVACIDAD -->
+          <div class="card-panel" style="background-color:#fafbfc;">
+            <h4 style="font-size:0.95rem; font-weight:700; margin-bottom:0.5rem;">Garantía de Privacidad y Funcionamiento Local</h4>
+            <p style="font-size:0.86rem; color:var(--text-secondary);">Esta aplicación funciona al 100% de manera autónoma en su navegador mediante HTML5 y <code>localStorage</code>. No envía datos a ningún servidor externo, no solicita contraseñas corporativas ni se conecta automáticamente a los sistemas de la empresa. Las notas de trabajo permanecen en su equipo.</p>
+          </div>
+        </section>
+
+        <!-- SECCIÓN B: MODO PRIMERA JORNADA -->
+        <section id="primera-jornada" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Guía Operativa del Día 1</div>
+            <h1>Modo Primera Jornada</h1>
+            <p>Procedimiento exacto paso a paso para comenzar el trabajo al sentarse frente al computador.</p>
+          </div>
+
+          <div class="step-list">
+            <!-- PASO 1 -->
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Paso 1</span>
+                  <h3 class="step-title">Comprender el Objetivo y las 3 Páginas Principales</h3>
+                </div>
+              </div>
+              <div class="step-meta-grid">
+                <div class="step-meta-item"><strong>Objetivo</strong><span>Claridad funcional del tablero</span></div>
+                <div class="step-meta-item"><strong>Dónde hacerlo</strong><span>Revisión conceptual previa</span></div>
+                <div class="step-meta-item"><strong>Resultado esperado</strong><span>Entender qué mide cada pantalla</span></div>
+              </div>
+              <div class="step-body">
+                <p>El proyecto busca actualizar el dashboard de Gestión de Calidad para el control de transferencias, averías y novedades logísticas:</p>
+                <ul>
+                  <li><strong>Página 1 (Faltantes y Sobrantes):</strong> Tarjetas resumen de unidades y evolución mensual de porcentajes y cantidades.</li>
+                  <li><strong>Página 2 (Vehículos que llegan vs Novedades):</strong> Comparar volumen de camiones/llegadas contra viajes afectados por novedades.</li>
+                  <li><strong>Página 3 (Detalle de Vehículos y Novedades):</strong> Matriz analítica para buscar por placa, ID, transferencia y el ranking Top 5 de vehículos con más incidencias.</li>
+                </ul>
+              </div>
+              <div class="step-actions-footer">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" data-task="pj_step_1">
+                  <span>Marcar Paso 1 como completado</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- PASO 2 -->
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Paso 2</span>
+                  <h3 class="step-title">Confirmar Accesos en el Puesto de Trabajo</h3>
+                </div>
+              </div>
+              <div class="step-meta-grid">
+                <div class="step-meta-item"><strong>Objetivo</strong><span>Verificar herramientas y permisos</span></div>
+                <div class="step-meta-item"><strong>Dónde hacerlo</strong><span>Windows / Navegador / M365</span></div>
+                <div class="step-meta-item"><strong>Resultado esperado</strong><span>Identificar qué software y carpetas tiene disponibles</span></div>
+              </div>
+              <div class="step-body">
+                <ol>
+                  <li>Abra el menú Inicio de Windows y busque <strong>Power BI Desktop</strong>. Si no está instalado, solicite soporte de TI o descárguelo desde la Microsoft Store institucional.</li>
+                  <li>Compruebe si tiene acceso al archivo <code>.pbix</code> original en una carpeta local o de red.</li>
+                  <li>Abra el navegador e intente ingresar al sitio de SharePoint Online o OneDrive donde se ubican las bases de datos.</li>
+                  <li><strong>Si no tiene permisos:</strong> No se detenga. Regístrelo en el formulario de preguntas y trabaje sobre la copia local de respaldo o el análisis documental.</li>
+                </ol>
+              </div>
+              <div class="step-actions-footer">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" data-task="pj_step_2">
+                  <span>Marcar Paso 2 como completado</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- PASO 3 -->
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Paso 3</span>
+                  <h3 class="step-title">Proteger el Trabajo Existente (Copia de Seguridad)</h3>
+                </div>
+              </div>
+              <div class="step-meta-grid">
+                <div class="step-meta-item"><strong>Objetivo</strong><span>Aislar el entorno productivo</span></div>
+                <div class="step-meta-item"><strong>Dónde hacerlo</strong><span>Explorador de Archivos de Windows</span></div>
+                <div class="step-meta-item"><strong>Resultado esperado</strong><span>Archivo de trabajo independiente fechado</span></div>
+              </div>
+              <div class="step-body">
+                <p><strong>Regla de oro:</strong> Nunca trabaje sobre el archivo productivo oficial ni sobrescriba el informe publicado en Power BI Service sin autorización.</p>
+                <ol>
+                  <li>Localice el archivo original (ej. <code>Dashboard_Calidad.pbix</code>).</li>
+                  <li>Cópielo y péguelo en su carpeta local de trabajo.</li>
+                  <li>Renómbrelo con la convención: <code>Dashboard_Gestion_Calidad_TRABAJO_YYYYMMDD_v1.0.pbix</code>.</li>
+                  <li>Si tiene acceso a los libros Excel de origen compartidos, trabaje en modo lectura.</li>
+                </ol>
+              </div>
+              <div class="step-actions-footer">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" data-task="pj_step_3">
+                  <span>Marcar Paso 3 como completado</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- PASO 4 -->
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Paso 4</span>
+                  <h3 class="step-title">Localizar Físicamente las Fuentes de Datos</h3>
+                </div>
+              </div>
+              <div class="step-meta-grid">
+                <div class="step-meta-item"><strong>Objetivo</strong><span>Identificar tipo y ruta de datos</span></div>
+                <div class="step-meta-item"><strong>Dónde hacerlo</strong><span>Power BI Desktop > Transformar datos</span></div>
+                <div class="step-meta-item"><strong>Resultado esperado</strong><span>Saber si es SharePoint Folder, Lista o Excel</span></div>
+              </div>
+              <div class="step-body">
+                <ol>
+                  <li>Abra su copia de trabajo en Power BI Desktop.</li>
+                  <li>En la pestaña <strong>Inicio</strong>, haga clic en <strong>Transformar datos</strong> > <strong>Configuración del origen de datos</strong>.</li>
+                  <li>Revise la lista de orígenes:
+                    <ul>
+                      <li><code>https://...sharepoint.com/...</code>: Datos alojados en la nube de Microsoft 365.</li>
+                      <li><code>C:\Users\...</code>: Archivo local (debe verificarse si la ruta existe en su computador).</li>
+                      <li><code>\\servidor\carpeta...</code>: Carpeta de red compartida de la empresa.</li>
+                    </ul>
+                  </li>
+                  <li>Anote estos hallazgos en la sección de <strong>Diagnóstico</strong> de esta guía.</li>
+                </ol>
+              </div>
+              <div class="step-actions-footer">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" data-task="pj_step_4">
+                  <span>Marcar Paso 4 como completado</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- PASO 5 -->
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Paso 5</span>
+                  <h3 class="step-title">Revisar el Dashboard Actual y sus Limitaciones</h3>
+                </div>
+              </div>
+              <div class="step-meta-grid">
+                <div class="step-meta-item"><strong>Objetivo</strong><span>Inventario visual del PBIX actual</span></div>
+                <div class="step-meta-item"><strong>Dónde hacerlo</strong><span>Vista de Informe de Power BI</span></div>
+                <div class="step-meta-item"><strong>Resultado esperado</strong><span>Lista de visuales y filtros que fallan</span></div>
+              </div>
+              <div class="step-body">
+                <ol>
+                  <li>Recorra las páginas actuales del informe.</li>
+                  <li>Verifique qué segmentadores existen en cada página (por ejemplo: Placa, Fecha, Operación).</li>
+                  <li>Pruebe seleccionar un valor en un segmentador de la Página 1 y navegue a la Página 2: ¿cambió el gráfico o se quedó igual? Anótelo.</li>
+                  <li>Identifique qué visuales tienen tablas con pocas columnas y requieren ampliación.</li>
+                </ol>
+              </div>
+              <div class="step-actions-footer">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" data-task="pj_step_5">
+                  <span>Marcar Paso 5 como completado</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- PASO 6 -->
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Paso 6</span>
+                  <h3 class="step-title">Inventariar las Columnas Nuevas (en Verde)</h3>
+                </div>
+              </div>
+              <div class="step-meta-grid">
+                <div class="step-meta-item"><strong>Objetivo</strong><span>Identificar nuevos campos requeridos</span></div>
+                <div class="step-meta-item"><strong>Dónde hacerlo</strong><span>Excel origen / Power Query</span></div>
+                <div class="step-meta-item"><strong>Resultado esperado</strong><span>Mapeo de nombres y tipos de datos</span></div>
+              </div>
+              <div class="step-body">
+                <ol>
+                  <li>Abra la base de datos de origen (o consulte las capturas de referencia).</li>
+                  <li>Identifique las columnas con encabezado sombreado en verde.</li>
+                  <li>Compruebe si ya están cargadas en Power Query o si están deshabilitadas en la consulta.</li>
+                  <li>Utilice la sección <strong>Inventario de Columnas</strong> de esta guía para registrarlas una a una con su significado funcional.</li>
+                </ol>
+              </div>
+              <div class="step-actions-footer">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" data-task="pj_step_6">
+                  <span>Marcar Paso 6 como completado</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- PASO 7 -->
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Paso 7</span>
+                  <h3 class="step-title">Documentar Hallazgos y Preguntas Pendientes</h3>
+                </div>
+              </div>
+              <div class="step-meta-grid">
+                <div class="step-meta-item"><strong>Objetivo</strong><span>Cierre de la primera jornada</span></div>
+                <div class="step-meta-item"><strong>Dónde hacerlo</strong><span>Sección Diagnóstico y Preguntas</span></div>
+                <div class="step-meta-item"><strong>Resultado esperado</strong><span>Bitácora completa y respaldo descargado</span></div>
+              </div>
+              <div class="step-body">
+                <p>Al finalizar la jornada inicial, complete el formulario de diagnóstico, revise las preguntas críticas para el líder de Calidad y presione el botón <strong>Exportar</strong> en la barra superior para descargar su progreso en un archivo JSON seguro.</p>
+              </div>
+              <div class="step-actions-footer">
+                <label class="task-checkbox-label">
+                  <input type="checkbox" data-task="pj_step_7">
+                  <span>Marcar Paso 7 como completado</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN C: DIAGNÓSTICO DEL ESTADO ACTUAL -->
+        <section id="diagnostico" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Auditoría Inicial</div>
+            <h1>Diagnóstico del Estado Actual del PBIX</h1>
+            <p>Formulario estructurado para registrar las características técnicas del archivo existente. Se guarda automáticamente en su navegador.</p>
+          </div>
+
+          <form id="diagnosticForm" class="card-panel">
+            <div class="card-title-group">
+              <h3>Ficha Técnica del Informe</h3>
+              <span class="nav-badge">Guardado Automático</span>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Nombre del archivo de Power BI (.pbix)</label>
+                <input type="text" class="form-control" name="pbixName" placeholder="Ej. Dashboard_Gestion_Calidad_Oficial.pbix">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Ubicación de la copia de trabajo local</label>
+                <input type="text" class="form-control" name="workingCopyPath" placeholder="Ej. C:\Proyectos\Calidad\Trabajo\Dashboard_Calidad_TRABAJO.pbix">
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-group">
+                <label class="form-label">Páginas existentes en el informe</label>
+                <input type="text" class="form-control" name="existingPages" placeholder="Ej. Faltantes y Sobrantes, Resumen Vehicular, Detalle">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Fecha y hora de última actualización visible</label>
+                <input type="text" class="form-control" name="lastRefreshDate" placeholder="Ej. 15/10/2026 08:30 AM">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tipo de Fuente Detectado</label>
+                <select class="form-control" name="sourceType">
+                  <option value="sharepoint_folder">Carpeta de SharePoint (Archivos Excel)</option>
+                  <option value="sharepoint_list">Lista nativa de SharePoint Online</option>
+                  <option value="excel_local">Excel Local / Carpeta Compartida</option>
+                  <option value="desconocido">Aún por determinar</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Ruta o URL exacta del origen identificado</label>
+              <input type="text" class="form-control" name="identifiedSource" placeholder="Ej. https://empresa.sharepoint.com/sites/GestionCalidad">
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Tablas cargadas en el modelo</label>
+                <textarea class="form-control" name="loadedTables" placeholder="Enumere las tablas visibles en el panel de datos (ej. BaseNacional, RegionalCartagena, MaestroVehiculos)..."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Consultas en Power Query</label>
+                <textarea class="form-control" name="powerQueryQueries" placeholder="Consultas activas, funciones personalizadas o parámetros..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Relaciones existentes en la Vista de Modelo</label>
+                <textarea class="form-control" name="modelRelationships" placeholder="Ej. BaseNacional[Placa] -> Maestro[Placa] (1:*). ¿Hay relaciones muchos a muchos o bidireccionales?"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Medidas DAX existentes detectadas</label>
+                <textarea class="form-control" name="existingMeasures" placeholder="Ej. [Total Novedades], [% Averías]. ¿Están calculadas correctamente o usan columnas calculadas?"></textarea>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Errores o advertencias de actualización observados</label>
+                <textarea class="form-control" name="refreshErrors" placeholder="Mensajes de error al hacer clic en 'Actualizar' (ej. columna no encontrada, acceso denegado)..."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Limitaciones de permisos o accesos</label>
+                <textarea class="form-control" name="securityLimitations" placeholder="¿Puede publicar en Power BI Service? ¿Tiene acceso a la carpeta de SharePoint?"></textarea>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <!-- SECCIÓN D: GUÍA DE CONEXIÓN A SHAREPOINT -->
+        <section id="sharepoint" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Conectividad Microsoft 365</div>
+            <h1>Guía de Conexión a SharePoint Online</h1>
+            <p>Seleccione cómo están almacenados los datos para obtener el procedimiento exacto y evitar fallos de conexión.</p>
+          </div>
+
+          <div class="source-selector-grid">
+            <div class="source-card-option selected" data-source="sharepoint_folder">
+              <div class="source-card-title">Archivos Excel en SharePoint</div>
+              <div class="source-card-desc">Libros .xlsx guardados en una Biblioteca de Documentos o Teams.</div>
+            </div>
+            <div class="source-card-option" data-source="sharepoint_list">
+              <div class="source-card-title">Lista de SharePoint Online</div>
+              <div class="source-card-desc">Listas nativas web de SharePoint con columnas y vistas de lista.</div>
+            </div>
+            <div class="source-card-option" data-source="excel_local">
+              <div class="source-card-title">Excel Local o Red SMB</div>
+              <div class="source-card-desc">Archivos en disco local (C:) o en carpeta compartida de red interna.</div>
+            </div>
+            <div class="source-card-option" data-source="no_se">
+              <div class="source-card-title">No lo sé todavía</div>
+              <div class="source-card-desc">Instrucciones para diagnosticar qué tiene configurado la empresa.</div>
+            </div>
+          </div>
+
+          <!-- BLOQUE A: ARCHIVOS EXCEL EN SHAREPOINT -->
+          <div id="guide_sharepoint_folder" class="source-instruction-block">
+            <div class="card-panel">
+              <div class="card-title-group">
+                <h3>Conexión a Archivos Excel en SharePoint (Método Oficial)</h3>
+              </div>
+              <div class="alert-box alert-amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <div>
+                  <div class="alert-title">¡No use el conector de Lista de SharePoint!</div>
+                  <div class="alert-desc">Si sus datos son libros <code>.xlsx</code>, usar el conector de Listas fallará. Debe usar el conector <strong>Carpeta de SharePoint</strong> o la URL directa de SharePoint.</div>
+                </div>
+              </div>
+
+              <h4 style="font-size:0.95rem; margin-bottom:0.5rem;">Paso a paso en Power BI Desktop:</h4>
+              <ol style="margin-left:1.5rem; line-height:1.7; margin-bottom:1.5rem;">
+                <li>Vaya a <strong>Inicio</strong> > <strong>Obtener datos</strong> > <strong>Más...</strong></li>
+                <li>Seleccione la categoría <strong>SharePoint</strong> > elija <strong>Carpeta de SharePoint</strong> > clic en <strong>Conectar</strong>.</li>
+                <li>Pegue únicamente la <strong>URL raíz del sitio</strong> (ej. <code>https://tuempresa.sharepoint.com/sites/GestionCalidad</code>). No incluya rutas de subcarpetas ni el nombre del archivo.</li>
+                <li>En autenticación, seleccione <strong>Cuenta Microsoft / Cuenta Organizacional</strong> e inicie sesión con su usuario corporativo.</li>
+                <li>En la ventana de vista previa, haga clic en <strong>Transformar datos</strong>.</li>
+                <li>En Power Query, filtre la columna <code>Folder Path</code> para apuntar a la carpeta exacta y filtre <code>Name</code> para el archivo Excel requerido.</li>
+                <li>Haga clic en el icono binario <code>[Binary]</code> de la columna <code>Content</code> para extraer las hojas del libro.</li>
+              </ol>
+
+              <h4>Código M de Referencia (Plantilla):</h4>
+              <pre><code>let
+    Origen = SharePoint.Files("https://tuempresa.sharepoint.com/sites/GestionCalidad", [ApiVersion = 15]),
+    FiltroCarpeta = Table.SelectRows(Origen, each [Folder Path] = "https://tuempresa.sharepoint.com/sites/GestionCalidad/Documentos Compartidos/Bases/"),
+    FiltroArchivo = Table.SelectRows(FiltroCarpeta, each [Name] = "Base_Nacional_Novedades.xlsx"),
+    Contenido = FiltroArchivo{0}[Content],
+    LibroExcel = Excel.Workbook(Contenido, null, true),
+    HojaNovedades = LibroExcel{[Item="Novedades", Kind="Sheet"]}[Data],
+    EncabezadosPromovidos = Table.PromoteHeaders(HojaNovedades, [PromoteAllScalars=true])
+in
+    EncabezadosPromovidos</code></pre>
+            </div>
+          </div>
+
+          <!-- BLOQUE B: LISTA DE SHAREPOINT ONLINE -->
+          <div id="guide_sharepoint_list" class="source-instruction-block" style="display:none;">
+            <div class="card-panel">
+              <div class="card-title-group">
+                <h3>Conexión a Lista de SharePoint Online</h3>
+              </div>
+              <ol style="margin-left:1.5rem; line-height:1.7; margin-bottom:1.5rem;">
+                <li>En Power BI Desktop, haga clic en <strong>Obtener datos</strong> > <strong>SharePoint Online List</strong>.</li>
+                <li>Ingrese la URL del sitio (ej. <code>https://tuempresa.sharepoint.com/sites/GestionCalidad</code>).</li>
+                <li>En la opción de <strong>Versión de API</strong>, seleccione <strong>2.0 (Recomendado)</strong> para mayor velocidad y mejor detección de tipos.</li>
+                <li>Autentíquese con <strong>Cuenta Microsoft</strong> corporativa autorizada.</li>
+                <li>En el Navegador, marque la casilla de la lista requerida y haga clic en <strong>Transformar datos</strong>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- BLOQUE C: EXCEL LOCAL O RED -->
+          <div id="guide_excel_local" class="source-instruction-block" style="display:none;">
+            <div class="card-panel">
+              <div class="card-title-group">
+                <h3>Conexión a Archivo Excel Local o Carpeta de Red</h3>
+              </div>
+              <p>Si los archivos están en su disco duro o en un servidor local (<code>\\servidor\calidad\...</code>):</p>
+              <ol style="margin-left:1.5rem; line-height:1.7;">
+                <li>Inicio > Obtener datos > <strong>Excel</strong>.</li>
+                <li>Seleccione el archivo y elija la hoja o tabla correspondiente.</li>
+                <li><strong>Advertencia:</strong> Si usa una ruta como <code>C:\Users\SuNombre\...</code>, al mover el archivo a otro equipo la actualización fallará. Se recomienda parametrizar la ruta de origen en Power Query.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- BLOQUE D: NO SÉ TODAVÍA -->
+          <div id="guide_no_se" class="source-instruction-block" style="display:none;">
+            <div class="card-panel">
+              <div class="card-title-group">
+                <h3>Cómo Averiguar qué Fuente Existe Actualmente</h3>
+              </div>
+              <p>1. Abra el archivo PBIX existente.</p>
+              <p>2. Clic en <strong>Transformar datos</strong> > menú lateral de consultas > seleccione la primera consulta.</p>
+              <p>3. En Pasos aplicados a la derecha, haga clic en el paso <strong>Origen</strong> y observe la barra superior de fórmulas <code>fx</code>:</p>
+              <ul>
+                <li>Si dice <code>SharePoint.Files</code>: son archivos Excel en SharePoint.</li>
+                <li>Si dice <code>SharePoint.Tables</code>: es una Lista de SharePoint.</li>
+                <li>Si dice <code>Excel.Workbook(File.Contents(...))</code>: es un archivo en disco local o red.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN E: INVENTARIO DE TABLAS Y COLUMNAS -->
+        <section id="inventario" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Estructura de Datos</div>
+            <h1>Inventario de Tablas y Columnas</h1>
+            <p>Registre y valide las columnas reales, especialmente las nuevas identificadas en verde.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Agregar Nuevo Registro de Inventario</h3>
+            </div>
+            <form id="inventoryForm">
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label">Nombre de la Tabla / Lista *</label>
+                  <input type="text" class="form-control" name="inv_table" required placeholder="Ej. f_Novedades_Nacional">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Fuente de Almacenamiento</label>
+                  <input type="text" class="form-control" name="inv_source" placeholder="Ej. SharePoint Folder / Excel">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Hoja, Lista o Consulta M</label>
+                  <input type="text" class="form-control" name="inv_sheet" placeholder="Ej. Hoja 'RegistroNovedades'">
+                </div>
+              </div>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label">Nombre de Campo / Columna *</label>
+                  <input type="text" class="form-control" name="inv_column" required placeholder="Ej. Placa_Vehiculo / Cantidad_Faltante">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tipo de Dato</label>
+                  <select class="form-control" name="inv_type">
+                    <option value="Texto">Texto (String)</option>
+                    <option value="Número Entero">Número Entero (Int64)</option>
+                    <option value="Número Decimal">Número Decimal (Double)</option>
+                    <option value="Fecha">Fecha (Date)</option>
+                    <option value="Fecha/Hora">Fecha/Hora (DateTime)</option>
+                    <option value="Booleano">Booleano (True/False)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">¿Es Identificador / Clave?</label>
+                  <select class="form-control" name="inv_is_id">
+                    <option value="No">No (Atributo o Métrica)</option>
+                    <option value="Sí (Clave Primaria)">Sí (Clave Primaria Única)</option>
+                    <option value="Sí (Clave Foránea)">Sí (Clave Foránea de Enlace)</option>
+                    <option value="Identificador Compuesto">Identificador Compuesto</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Descripción Funcional de Negocio</label>
+                <input type="text" class="form-control" name="inv_desc" placeholder="¿Qué significa este campo para la operación de calidad?">
+              </div>
+
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label">¿Tiene Valores Vacíos / Nulos?</label>
+                  <select class="form-control" name="inv_nulls">
+                    <option value="No">No</option>
+                    <option value="Sí, pocos">Sí, casos excepcionales</option>
+                    <option value="Sí, frecuentes">Sí, muy frecuente</option>
+                    <option value="Por verificar">Por verificar</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Duplicados Observados</label>
+                  <select class="form-control" name="inv_duplicates">
+                    <option value="No permitidos">No permitidos (Único)</option>
+                    <option value="Esperados por diseño">Esperados (Varios eventos por placa)</option>
+                    <option value="Errores de captura">Errores manuales observados</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Estado de Validación</label>
+                  <select class="form-control" name="inv_status">
+                    <option value="En Revisión">En Revisión</option>
+                    <option value="Validado">Validado con la Empresa</option>
+                    <option value="Pendiente Confirmar">Pendiente Confirmar</option>
+                    <option value="Descartado">Descartado</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Uso Actual en el Dashboard</label>
+                  <input type="text" class="form-control" name="inv_current_use" placeholder="Ej. Segmentador o sin uso hoy">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Uso Previsto en el Nuevo Dashboard</label>
+                  <input type="text" class="form-control" name="inv_planned_use" placeholder="Ej. Métrica de numerador o Eje X de gráfico">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Observaciones Técnicas</label>
+                <input type="text" class="form-control" name="inv_notes" placeholder="Notas de limpieza, transformación M necesaria, etc.">
+              </div>
+
+              <button type="submit" class="btn btn-petroleum">Guardar Campo en Inventario</button>
+            </form>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Registros del Inventario</h3>
+              <input type="text" id="invSearchInput" class="form-control" style="width:240px;" placeholder="Filtrar columnas...">
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Tabla / Origen</th>
+                    <th>Columna</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                    <th>Clave / Nulos</th>
+                    <th>Uso Previsto</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody id="inventoryTableBody">
+                  <!-- Inyectado por JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN F: PLAN DE 12 FASES -->
+        <section id="fases" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Metodología de Ejecución</div>
+            <h1>Plan de Ejecución por Fases</h1>
+            <p>Itinerario técnico estructurado de 12 fases con dependencias, criterios de aceptación y riesgos.</p>
+          </div>
+
+          <div id="phasesAccordionList">
+            <!-- FASE 1 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_1">Pendiente</span>
+                  <div class="accordion-title">Fase 1: Diagnóstico del PBIX y Fuentes Existentes</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Descubrir el punto de partida real del archivo sin asumir orígenes ficticios.</p>
+                <p><strong>Dependencias:</strong> Tener acceso al archivo PBIX y Power BI Desktop instalado.</p>
+                <p><strong>Procedimiento:</strong> Abrir PBIX, inspeccionar "Configuración del origen de datos", revisar visuales actuales y documentar en la sección de Diagnóstico.</p>
+                <p><strong>Criterios de Aceptación:</strong> Saber con 100% de certeza dónde están conectadas las tablas hoy.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_1">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 2 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_2">Pendiente</span>
+                  <div class="accordion-title">Fase 2: Revisión Profunda de Fuentes y Columnas Verdes</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Inventariar las dos fuentes (Nacional y Regional/Cartagena) y los nuevos campos verdes.</p>
+                <p><strong>Dependencias:</strong> Fase 1 completada.</p>
+                <p><strong>Criterios de Aceptación:</strong> Registro de cada columna verde con su tipo y ausencia de errores de tipado.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_2">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 3 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_3">Pendiente</span>
+                  <div class="accordion-title">Fase 3: Definición Formal de Reglas de Negocio</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Confirmar con la empresa qué define un viaje, una entrega, el numerador/denominador de porcentajes y el criterio del Top 5.</p>
+                <p><strong>Dependencias:</strong> Respuestas al panel de preguntas críticas.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_3">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 4 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_4">Pendiente</span>
+                  <div class="accordion-title">Fase 4: Auditoría y Ajuste del Modelo de Datos</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Garantizar relaciones 1 a varios con dimensiones compartidas (Calendario, Vehículos, Destinos). Evitar relaciones muchos a muchos o bidireccionales innecesarias.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_4">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 5 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_5">Pendiente</span>
+                  <div class="accordion-title">Fase 5: Optimización y Limpieza en Power Query</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Tipificación explícita de fechas y números, normalización de placas (mayúsculas y sin espacios) y evaluación de Anexar vs Combinar.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_5">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 6 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_6">Pendiente</span>
+                  <div class="accordion-title">Fase 6: Creación y Validación de Medidas DAX</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Implementar métricas usando DIVIDE(), DISTINCTCOUNT() y RANKX(). Validación cruzada contra sumas manuales de Excel.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_6">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 7 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_7">Pendiente</span>
+                  <div class="accordion-title">Fase 7: Renovación de la Página 1 (Faltantes y Sobrantes)</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Tarjetas de unidades y gráfico temporal por mes/semana, formateo numérico con separador de miles y validación en mes de prueba (ej. Julio).</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_7">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 8 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_8">Pendiente</span>
+                  <div class="accordion-title">Fase 8: Renovación de la Página 2 (Vehículos vs Novedades)</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Gráfica comparativa de llegadas totales frente a viajes con incidencia, cuidando no duplicar conteos.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_8">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 9 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_9">Pendiente</span>
+                  <div class="accordion-title">Fase 9: Renovación de la Página 3 (Detalle y Top 5)</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Tabla enriquecida con columnas verdes (Placa, Transferencia, Pedido, Entrega, Fecha, Destino) y visual del Top 5 de vehículos más críticos.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_9">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 10 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_10">Pendiente</span>
+                  <div class="accordion-title">Fase 10: Sincronización y Reparación de Filtros</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Configurar el panel de sincronización de segmentadores entre páginas 1, 2 y 3 para Placa, Fecha y Operación.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_10">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 11 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_11">Pendiente</span>
+                  <div class="accordion-title">Fase 11: Automatización del Flujo y Actualización</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Reducir la copia manual entre hojas, evaluar Power Query incremental y viabilidad de Power Automate en el entorno corporativo.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_11">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- FASE 12 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <div class="accordion-header-left">
+                  <span class="phase-status-badge status-pendiente" id="badge_phase_12">Pendiente</span>
+                  <div class="accordion-title">Fase 12: Plan de Pruebas, Validación y Documentación Final</div>
+                </div>
+                <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="accordion-content">
+                <p><strong>Objetivo:</strong> Ejecución de las 10 pruebas unitarias, firma de aceptación con el usuario líder y entrega del manual operativo.</p>
+                <div style="margin-top:1rem; display:flex; align-items:center; gap:1rem;">
+                  <label><strong>Estado de la Fase:</strong></label>
+                  <select class="form-control" style="width:180px;" data-phase="phase_12">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="en-curso">En Curso</option>
+                    <option value="completada">Completada</option>
+                    <option value="bloqueada">Bloqueada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN G: GUÍA DE POWER QUERY -->
+        <section id="powerquery" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Transformación y Calidad (ETL)</div>
+            <h1>Guía Práctica de Power Query</h1>
+            <p>Procedimientos esenciales de preparación, tipado y limpieza de datos antes de cargar al modelo.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Conceptos Fundamentales: Anexar vs Combinar</h3>
+            </div>
+            <div class="form-grid-2">
+              <div style="background:var(--bg-subtle); padding:1.25rem; border-radius:var(--radius-sm);">
+                <h4 style="color:var(--petroleum-primary); margin-bottom:0.4rem;">Anexar Consultas (Append)</h4>
+                <p style="font-size:0.88rem;">Apila filas de una tabla debajo de otra (equivalente a <code>UNION ALL</code>). <strong>Solo debe usarse</strong> si las tablas tienen la misma granularidad y columnas equivalentes (ej. Base Nacional y Base Cartagena de Novedades).</p>
+              </div>
+              <div style="background:var(--bg-subtle); padding:1.25rem; border-radius:var(--radius-sm);">
+                <h4 style="color:var(--petroleum-primary); margin-bottom:0.4rem;">Combinar Consultas (Merge)</h4>
+                <p style="font-size:0.88rem;">Une columnas horizontalmente mediante una clave común (equivalente a <code>LEFT JOIN</code>). Útil para enriquecer la tabla de hechos con maestros o catálogos.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Patrones M Recomendados para Calidad de Datos</h3>
+            </div>
+            <pre><code>// 1. Limpieza de texto en Placa (Evitar discrepancias por espacios o minúsculas)
+= Table.TransformColumns(PasoPrevio, {{"Placa", each Text.Upper(Text.Trim(_)), type text}})
+
+// 2. Tipado estricto de fechas (Evitar errores de formato regional)
+= Table.TransformColumnTypes(PasoPrevio, {{"Fecha_Operacion", type date}}, "es-CO")
+
+// 3. Reemplazo de errores por nulos elegantes en cantidades
+= Table.ReplaceErrorValues(PasoPrevio, {{"Cantidad_Faltante", 0}})</pre></code>
+          </div>
+        </section>
+
+        <!-- SECCIÓN H: MODELADO Y DAX -->
+        <section id="modelado-dax" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Cálculo y Lógica de Negocio</div>
+            <h1>Guía de Modelado Relacional y DAX</h1>
+            <p>Fórmulas DAX robustas, control de contexto de filtro y esquemas en estrella.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Reglas de Oro DAX para este Proyecto</h3>
+            </div>
+            <ul>
+              <li><strong>Usar Medidas Explícitas:</strong> Nunca arrastre columnas al área de valores esperando agregaciones implícitas automáticas.</li>
+              <li><strong>Siempre DIVIDE():</strong> Previene el error <code>NaN</code> o <code>Infinity</code> cuando el denominador es 0 o está vacío.</li>
+              <li><strong>Cuidar la granularidad:</strong> <code>COUNTROWS()</code> cuenta filas de registros; <code>DISTINCTCOUNT()</code> cuenta identidades únicas de camiones o transferencias.</li>
+            </ul>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Medidas Principales Listas para Sustitución</h3>
+            </div>
+            <pre><code>// KPI: Total Faltantes (Unidades)
+Total Faltantes = 
+CALCULATE(
+    SUM(f_Novedades[Cantidad_Unidades]),
+    KEEPFILTERS(f_Novedades[Tipo_Novedad] = "Faltante")
+)
+
+// KPI: % Faltantes (Con Denominador Seguro)
+% Faltantes = 
+DIVIDE(
+    [Total Faltantes],
+    [Total Unidades Despachadas], // Sustituir por la medida de denominador oficial
+    BLANK()
+)
+
+// KPI: Vehículos Únicos que Llegaron
+Vehiculos que Llegaron = 
+DISTINCTCOUNT(f_Llegadas[Placa_Vehiculo])
+
+// KPI: Vehículos con Novedades
+Vehiculos con Novedad = 
+CALCULATE(
+    DISTINCTCOUNT(f_Novedades[Placa_Vehiculo])
+)
+
+// KPI: Ranking Top 5 Dinámico
+Ranking Vehiculo = 
+IF(
+    NOT(ISBLANK([Novedades por Vehiculo])),
+    RANKX(
+        ALLSELECTED(d_Vehiculo[Placa_Vehiculo]),
+        [Novedades por Vehiculo],
+        ,
+        DESC,
+        Dense
+    )
+)</pre></code>
+          </div>
+        </section>
+
+        <!-- SECCIÓN I: DISEÑO PÁGINAS 1, 2 Y 3 -->
+        <section id="paginas" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Experiencia Visual</div>
+            <h1>Diseño y Modificación de las Tres Páginas</h1>
+            <p>Actualizar el informe sin destruir las visualizaciones preexistentes.</p>
+          </div>
+
+          <div class="step-list">
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Página 1</span>
+                  <h3 class="step-title">Faltantes y Sobrantes</h3>
+                </div>
+              </div>
+              <div class="step-body">
+                <p><strong>Visuales recomendados:</strong></p>
+                <ul>
+                  <li>Tarjeta de KPI 1: Cantidad de Faltantes.</li>
+                  <li>Tarjeta de KPI 2: Cantidad de Sobrantes.</li>
+                  <li>Tarjeta de KPI 3: % de Faltantes vs Despachos.</li>
+                  <li>Gráfico de Columnas Agrupadas o Líneas: Evolución temporal por Mes/Semana de Faltantes vs Sobrantes.</li>
+                  <li><strong>Validación:</strong> Use los datos del mes de julio para comprobar que la suma visual concuerda con la suma del Excel.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Página 2</span>
+                  <h3 class="step-title">Vehículos que llegan vs Vehículos con Novedades</h3>
+                </div>
+              </div>
+              <div class="step-body">
+                <p><strong>Visuales recomendados:</strong></p>
+                <ul>
+                  <li>Gráfico de Barras o Donut: Proporción de camiones sin novedad vs con novedad.</li>
+                  <li>Tarjeta KPI: % de Afectación Vehicular (<code>[Vehiculos con Novedad] / [Vehiculos que Llegaron]</code>).</li>
+                  <li><strong>Precaución crítica:</strong> Asegúrese de que la gráfica cuente placas únicas o viajes según la definición formal, sin inflar números.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header">
+                <div>
+                  <span class="step-badge-number">Página 3</span>
+                  <h3 class="step-title">Detalle de Vehículos, Transferencias y Top 5</h3>
+                </div>
+              </div>
+              <div class="step-body">
+                <p><strong>Visuales recomendados:</strong></p>
+                <ul>
+                  <li>Gráfico de Barras Horizontales Top 5: Los 5 vehículos con mayor frecuencia o impacto de novedades.</li>
+                  <li>Matriz / Tabla de Detalle: Columnas de Placa, Nro Transferencia, Pedido, Entrega, Fecha, Destino, Tipo Novedad y Observaciones.</li>
+                  <li>Filtros superiores rápidos: Búsqueda de texto por Placa y Selector de Destino.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN J: REPARACIÓN DE FILTROS -->
+        <section id="filtros" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Sincronización e Interacción</div>
+            <h1>Reparación de Filtros y Segmentadores</h1>
+            <p>Diagnóstico y solución cuando los filtros no se reflejan entre páginas.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Paso a Paso en Power BI Desktop</h3>
+            </div>
+            <ol style="margin-left:1.5rem; line-height:1.8;">
+              <li>Abra la <strong>Página 1</strong>.</li>
+              <li>En la cinta superior, active la pestaña <strong>Ver</strong> > marque <strong>Sincronizar segmentadores</strong>.</li>
+              <li>Haga clic sobre el segmentador de Fecha o Placa.</li>
+              <li>En el panel lateral derecho, marque la casilla de la columna con las <strong>flechas giratorias</strong> para las Páginas 1, 2 y 3.</li>
+              <li>Marque la casilla del <strong>ojo</strong> únicamente en las páginas donde desee que el control sea visible físicamente.</li>
+              <li>Pruebe la navegación seleccionando un valor y cambiando de pestaña.</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- SECCIÓN K: AUTOMATIZACIÓN DEL FLUJO -->
+        <section id="automatizacion" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Eficiencia de Procesos</div>
+            <h1>Automatización del Proceso de Actualización</h1>
+            <p>Estrategia para eliminar las tareas de copiar, pegar y consolidar manualmente.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Flujo Actual vs Flujo Futuro Propuesto</h3>
+            </div>
+            <div class="form-grid-2">
+              <div style="background:var(--red-light); padding:1.25rem; border-radius:var(--radius-sm); border:1px solid var(--red-border);">
+                <h4 style="color:var(--accent-red); margin-bottom:0.5rem;">Flujo Actual (Manual y Propenso a Error)</h4>
+                <p style="font-size:0.85rem; color:#881337;">1. Descargar archivo nacional y archivo regional.<br>2. Copiar registros de una hoja a otra.<br>3. Completar datos manualmente con otras hojas.<br>4. Pegar en la base de novedades.<br>5. Abrir Power BI y actualizar.</p>
+              </div>
+              <div style="background:var(--green-light); padding:1.25rem; border-radius:var(--radius-sm); border:1px solid #bbf7d0;">
+                <h4 style="color:var(--accent-green); margin-bottom:0.5rem;">Flujo Futuro Propuesto (Automatizado)</h4>
+                <p style="font-size:0.85rem; color:#14532d;">1. Los usuarios registran directamente en SharePoint (Carpeta o Lista).<br>2. Power Query realiza la consolidación y limpieza automáticamente en memoria.<br>3. Power Automate (si está autorizado) notifica novedades críticas.<br>4. Power BI Service actualiza programadamente sin intervención manual.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN L: PREGUNTAS PARA LA EMPRESA -->
+        <section id="preguntas" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Alineación Estratégica</div>
+            <h1>Preguntas Pendientes para la Empresa</h1>
+            <p>Cuestionario crítico que debe resolver con los líderes antes de realizar cambios de fondo.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Cuestionario Operativo con Registro de Respuestas</h3>
+            </div>
+
+            <!-- PREGUNTA 1 -->
+            <div style="padding:1rem 0; border-bottom:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">1. ¿Cuál es la fuente oficial que alimenta actualmente el PBIX?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q1">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: Determina si se conecta a SharePoint Folder, SharePoint List o Excel local. Bloquea Fase 1.</p>
+              <textarea class="form-control" data-question="q1" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+
+            <!-- PREGUNTA 2 -->
+            <div style="padding:1rem 0; border-bottom:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">2. ¿Cuáles son las columnas nuevas identificadas en verde y qué significan?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q2">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: Evita mapear datos erróneos en la tabla de detalle. Bloquea Fase 2 y 9.</p>
+              <textarea class="form-control" data-question="q2" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+
+            <!-- PREGUNTA 3 -->
+            <div style="padding:1rem 0; border-bottom:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">3. ¿Qué campo identifica de forma única una Entrega?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q3">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: Evita duplicar conteos en transferencias multilínea. Bloquea Fase 3 y 6.</p>
+              <textarea class="form-control" data-question="q3" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+
+            <!-- PREGUNTA 4 -->
+            <div style="padding:1rem 0; border-bottom:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">4. ¿Cómo debe definirse exactamente una llegada o un viaje?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q4">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: Un camión puede realizar 15 viajes al mes. No confundir placa con viaje. Bloquea Fase 8.</p>
+              <textarea class="form-control" data-question="q4" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+
+            <!-- PREGUNTA 5 -->
+            <div style="padding:1rem 0; border-bottom:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">5. ¿Cuál es el denominador oficial para los porcentajes de faltantes/sobrantes?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q5">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: ¿Total unidades despachadas o recibidas? Bloquea Fase 7.</p>
+              <textarea class="form-control" data-question="q5" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+
+            <!-- PREGUNTA 6 -->
+            <div style="padding:1rem 0; border-bottom:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">6. ¿Bajo qué criterio debe ordenarse el Top 5 de Vehículos?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q6">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: ¿Por cantidad de novedades, por volumen de avería o por severidad? Bloquea Fase 9.</p>
+              <textarea class="form-control" data-question="q6" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+
+            <!-- PREGUNTA 7 -->
+            <div style="padding:1rem 0; border-bottom:1px solid var(--border-subtle);">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">7. ¿Cuál es el procedimiento autorizado para publicar los cambios?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q7">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: Saber en qué Workspace publicar y quién da el visto bueno formal.</p>
+              <textarea class="form-control" data-question="q7" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+
+            <!-- PREGUNTA 8 -->
+            <div style="padding:1rem 0;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+                <strong style="font-size:0.95rem; color:var(--text-primary);">8. ¿Quién valida las cifras oficiales de conciliación?</strong>
+                <select class="form-control" style="width:150px;" data-qstatus="q8">
+                  <option value="pendiente">Pendiente</option>
+                  <option value="resuelta">Resuelta</option>
+                  <option value="no-aplica">No Aplica</option>
+                </select>
+              </div>
+              <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:0.5rem;">Importancia: Nombre y rol del líder de Calidad para el acta de entrega.</p>
+              <textarea class="form-control" data-question="q8" placeholder="Anote aquí la respuesta obtenida..."></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN M: PLAN DE PRUEBAS -->
+        <section id="pruebas" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Aseguramiento de Calidad</div>
+            <h1>Plan de Pruebas Unitarias y de Integración</h1>
+            <p>10 pruebas ejecutables manualmente para validar cálculos, filtros y datos antes del pase final.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Objeto de Prueba</th>
+                    <th>Procedimiento</th>
+                    <th>Resultado Esperado</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>TEST-01</strong></td>
+                    <td>Carga de Fuentes</td>
+                    <td>Actualizar vista previa en Power Query en todas las consultas.</td>
+                    <td>0 errores amarillos o de ruta rota.</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_01">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-02</strong></td>
+                    <td>Presencia Columnas Verdes</td>
+                    <td>Verificar que los nuevos campos aparecen en la lista de campos.</td>
+                    <td>Todas las columnas verdes disponibles y tipificadas.</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_02">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-03</strong></td>
+                    <td>Faltantes y Sobrantes</td>
+                    <td>Sumar en Excel el mes de Julio y comparar con la tarjeta en Power BI.</td>
+                    <td>Coincidencia exacta al 100% (Diferencia = 0).</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_03">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-04</strong></td>
+                    <td>Cálculo de Porcentajes</td>
+                    <td>Evaluar resultado de % Faltantes contra cálculo manual.</td>
+                    <td>Porcentaje razonable (sin errores NaN o >100% injustificado).</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_04">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-05</strong></td>
+                    <td>Vehículos vs Viajes</td>
+                    <td>Filtrar una placa con múltiples llegadas.</td>
+                    <td>Vehículos = 1; Llegadas / Viajes = total real (>1).</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_05">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-06</strong></td>
+                    <td>Ranking Top 5</td>
+                    <td>Validar los 5 primeros lugares del gráfico contra orden manual.</td>
+                    <td>Orden exacto según el criterio de severidad acordado.</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_06">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-07</strong></td>
+                    <td>Detalle Multirregistro</td>
+                    <td>Seleccionar placa con 4 pedidos en la Página 3.</td>
+                    <td>La tabla muestra las 4 transferencias sin omitir filas.</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_07">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-08</strong></td>
+                    <td>Filtros Sincronizados</td>
+                    <td>Filtrar fecha en Página 1 y revisar Páginas 2 y 3.</td>
+                    <td>Las 3 páginas comparten el mismo contexto temporal.</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_08">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-09</strong></td>
+                    <td>Actualización Incremental</td>
+                    <td>Agregar un registro de prueba y hacer clic en Actualizar.</td>
+                    <td>El nuevo registro aparece reflejado en las métricas.</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_09">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>TEST-10</strong></td>
+                    <td>Conciliación con Liderazgo</td>
+                    <td>Revisión final conjunta con el Coordinador de Calidad.</td>
+                    <td>Firma de visto bueno técnico y funcional.</td>
+                    <td>
+                      <select class="form-control" style="width:130px;" data-test="test_10">
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en-curso">En Curso</option>
+                        <option value="completada">Aprobada</option>
+                        <option value="bloqueada">Fallida</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN N: SOLUCIÓN DE PROBLEMAS -->
+        <section id="problemas" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Base de Conocimiento</div>
+            <h1>Solución de Problemas Frecuentes</h1>
+            <p>Diagnóstico rápido y acciones seguras ante los fallos más comunes en Power BI y SharePoint.</p>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <input type="text" id="troubleSearchInput" class="form-control" placeholder="Buscar síntoma o error (ej. permisos, filtros, fecha texto, duplicados)...">
+          </div>
+
+          <div class="step-list">
+            <!-- CASO 1 -->
+            <div class="card-panel trouble-card">
+              <h3 style="color:var(--petroleum-primary); margin-bottom:0.4rem;">1. Error: "No se puede autenticar con las credenciales proporcionadas" en SharePoint</h3>
+              <p><strong>Causa:</strong> Power BI guardó credenciales anónimas o de Windows en lugar de la cuenta institucional de Microsoft 365.</p>
+              <p><strong>Acción Segura:</strong> Vaya a <em>Archivo</em> > <em>Opciones y configuración</em> > <em>Configuración del origen de datos</em> > Seleccione la URL de SharePoint > Clic en <em>Borrar permisos</em>. Luego haga clic en Actualizar y elija <strong>Cuenta Microsoft</strong> para iniciar sesión.</p>
+            </div>
+
+            <!-- CASO 2 -->
+            <div class="card-panel trouble-card">
+              <h3 style="color:var(--petroleum-primary); margin-bottom:0.4rem;">2. Un filtro funciona en una página pero no se aplica en las demás</h3>
+              <p><strong>Causa:</strong> El segmentador no está sincronizado en el panel lateral o proviene de columnas no vinculadas en el modelo.</p>
+              <p><strong>Acción Segura:</strong> Active <em>Ver</em> > <em>Sincronizar segmentadores</em> y marque las casillas de sincronización. Compruebe que todas las tablas usen la misma dimensión compartida (ej. <code>d_Vehiculo[Placa]</code>).</p>
+            </div>
+
+            <!-- CASO 3 -->
+            <div class="card-panel trouble-card">
+              <h3 style="color:var(--petroleum-primary); margin-bottom:0.4rem;">3. Las fechas se cargan como Texto o generan error de conversión</h3>
+              <p><strong>Causa:</strong> Incompatibilidad de configuración regional (ej. formato día/mes/año vs mes/día/año de Windows).</p>
+              <p><strong>Acción Segura:</strong> En Power Query, haga clic derecho sobre el encabezado de fecha > <em>Cambiar tipo</em> > <strong>Usando la configuración regional...</strong> > Elija Tipo: <em>Fecha</em> y Configuración: <em>Español (Colombia)</em> o la del país de origen.</p>
+            </div>
+
+            <!-- CASO 4 -->
+            <div class="card-panel trouble-card">
+              <h3 style="color:var(--petroleum-primary); margin-bottom:0.4rem;">4. Las cifras de vehículos aumentan inesperadamente</h3>
+              <p><strong>Causa:</strong> Se está usando <code>COUNT()</code> o <code>COUNTROWS()</code> sobre la tabla de novedades en lugar de <code>DISTINCTCOUNT()</code> sobre las placas o viajes.</p>
+              <p><strong>Acción Segura:</strong> Revise la fórmula DAX. Si una placa tuvo 10 novedades, contar filas devolverá 10 en vez de 1 camión.</p>
+            </div>
+
+            <!-- CASO 5 -->
+            <div class="card-panel trouble-card">
+              <h3 style="color:var(--petroleum-primary); margin-bottom:0.4rem;">5. La tabla de detalle muestra registros duplicados</h3>
+              <p><strong>Causa:</strong> Se creó una relación de varios a varios (<code>*:*</code>) entre dos tablas de hechos sin una dimensión intermedia, generando producto cartesiano.</p>
+              <p><strong>Acción Segura:</strong> Nunca fuerce una relación de varios a varios. Cree una tabla intermedia con valores únicos de Placas o Transferencias y relacione 1 a varios hacia cada hecho.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN O: CHECKLIST FINAL -->
+        <section id="checklist" class="view-section">
+          <div class="section-header">
+            <div class="section-tag">Cierre y Entrega</div>
+            <h1>Checklist Final de Calidad</h1>
+            <p>Verificación exhaustiva antes de presentar el informe o pasar a producción.</p>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-group">
+              <h3>Lista de Comprobación Integral</h3>
+            </div>
+            <div class="step-body">
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_sources">
+                <span><strong>Fuentes Validadas:</strong> Origen conectado formalmente a la fuente oficial (SharePoint o Excel institucional) sin rutas locales temporales.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_columns">
+                <span><strong>Columnas Nuevas:</strong> Todas las columnas identificadas en verde están incorporadas con nombres y tipos de datos correctos.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_dax">
+                <span><strong>Medidas DAX:</strong> Fórmulas con <code>DIVIDE()</code>, manejo de blancos elegante y denominadores de negocio aprobados.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_page1">
+                <span><strong>Página 1 Operativa:</strong> Faltantes y sobrantes coinciden con los libros de origen para el mes de prueba.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_page2">
+                <span><strong>Página 2 Operativa:</strong> Proporción de camiones/llegadas vs novedades calculada sin duplicidades.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_page3">
+                <span><strong>Página 3 Operativa:</strong> Tabla de detalle con búsqueda funcional y ranking Top 5 ordenado según el criterio pactado.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_slicers">
+                <span><strong>Filtros Sincronizados:</strong> La selección de fechas, placa y operación se propaga de forma coherente entre las tres páginas.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_tests">
+                <span><strong>Plan de Pruebas:</strong> Las 10 pruebas del plan unitario ejecutadas y con resultado conforme.</span>
+              </label>
+              <label class="task-checkbox-label" style="display:flex; margin-bottom:1rem;">
+                <input type="checkbox" data-task="chk_docs">
+                <span><strong>Documentación:</strong> Entregada la guía operativa y notas del modelo para el equipo de relevo.</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- TOAST DE NOTIFICACIONES -->
+  <div id="notificationToast" class="notification-toast">Progreso guardado</div>
+
+  <!-- SCRIPTS -->
+  <script src="app.js"></script>
+</body>
+</html>

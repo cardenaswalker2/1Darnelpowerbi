@@ -1,0 +1,7 @@
+# Ignorar temporales y archivos binarios pesados no requeridos
+PROMPT - PowerBi.pdf
+pdf_extracted_text.txt
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
